@@ -35,6 +35,7 @@ public class HelloController {
             while (rs.next()) {
                 String decade = rs.getInt("decade") + "s";
                 int count = rs.getInt("count");
+                series.setName("Anzahl der Länder");
                 series.getData().add(new XYChart.Data<>(decade, count));
             }
 
