@@ -20,6 +20,8 @@ public class HelloController {
 
         XYChart.Series<String, Number> series = new XYChart.Series<>();
 
+
+
         String sql =
                 "SELECT (indepyear / 10) * 10 AS decade, COUNT(*) AS count " +
                         "FROM country " +
@@ -37,6 +39,7 @@ public class HelloController {
                 int count = rs.getInt("count");
                 series.setName("Anzahl der Länder");
                 series.getData().add(new XYChart.Data<>(decade, count));
+
             }
 
             barChart.getData().add(series);
@@ -49,4 +52,5 @@ public class HelloController {
             e.printStackTrace();
         }
     }
+
 }
