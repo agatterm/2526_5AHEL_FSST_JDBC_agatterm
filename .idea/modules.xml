@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/2526_5AHEL_FSST_JDBC_agatterm.iml" filepath="$PROJECT_DIR$/.idea/2526_5AHEL_FSST_JDBC_agatterm.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JavaFXJDBC/JavaFXJDBC.iml" filepath="$PROJECT_DIR$/JavaFXJDBC/JavaFXJDBC.iml" />
     </modules>
   </component>
 </project>

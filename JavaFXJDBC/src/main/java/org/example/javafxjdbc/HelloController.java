@@ -31,8 +31,8 @@ public class HelloController {
 
         try {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://xserv:5432/world2", "reader","reader");
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
 
             while (rs.next()) {
                 String decade = rs.getInt("decade") + "s";
@@ -45,7 +45,7 @@ public class HelloController {
             barChart.getData().add(series);
 
             rs.close();
-            stmt.close();
+            st.close();
             conn.close();
 
         } catch (Exception e) {
