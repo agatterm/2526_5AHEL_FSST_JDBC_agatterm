@@ -37,17 +37,18 @@ public class CountryData {
                         new XYChart.Data<>(decade, count);
                         //legt die Achsen für das Diagramm fest
 
+
                 data.nodeProperty().addListener((obs, oldNode, node) -> { //node = ein einzelner Balken | wird aufgerufen wenn ein einzelner Balken gerendert wird
                     if (node != null) { //obs = die beobachtete Property | oldNode = alter Wert (0)
-
+                            node.setStyle("-fx-background-color: green;");
 
                         Tooltip.install(node, //Tooltip = Zusatzinfo, hier für node also den Balken
-                                new Tooltip("Dekade: " + decade +
-                                        "\nLänder: " + count));
+                                new Tooltip("Dekade: " + decade + "\nLänder: " + count));
 
 
                         Label label = new Label(String.valueOf(count));
                         label.setStyle("-fx-font-size: 11px; -fx-font-weight: bold;");
+                        //Font size und Style für das Textfeld auf den Balken setzen
 
 
                         ((javafx.scene.layout.StackPane) node).getChildren().add(label);
