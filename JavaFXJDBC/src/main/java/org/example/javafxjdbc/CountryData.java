@@ -47,7 +47,7 @@ public class CountryData {
 
 
                         Label label = new Label(String.valueOf(count));
-                        label.setStyle("-fx-font-size: 11px; -fx-font-weight: bold;");
+                        label.setStyle("-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: white");
                         //Font size und Style für das Textfeld auf den Balken setzen
 
 
