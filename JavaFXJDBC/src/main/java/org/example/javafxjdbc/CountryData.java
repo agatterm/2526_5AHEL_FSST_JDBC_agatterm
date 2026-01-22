@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CountryData {
+    static int x;
+    int notStaticX;
 
 
     public static List<XYChart.Data<String, Number>> getCountriesPerDecade() {
