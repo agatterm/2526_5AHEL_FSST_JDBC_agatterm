@@ -24,7 +24,7 @@ public class CountryInfoController {
     private ComboBox<String> dropdown;
 
     private List<CountryExtension> allCountries;
-    Stream<CountryExtension> countrystream = allCountries.stream();
+  
 
     @FXML
     public void initialize() {

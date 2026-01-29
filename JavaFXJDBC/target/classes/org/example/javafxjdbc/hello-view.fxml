@@ -17,9 +17,6 @@
    <ComboBox fx:id="dropdown" prefWidth="150.0" />
 
 
-
-    <Label fx:id="welcomeText" />
-
     <BarChart fx:id="barChart">
         <xAxis>
             <CategoryAxis side="BOTTOM" />
