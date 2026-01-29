@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 //TODO: berechnen Sie das den Durchschnitt der Jahre der Unabhängigkeit (der Auswal)
 //  Version 1: Iteration über die Collection (List)
@@ -23,6 +24,7 @@ public class CountryInfoController {
     private ComboBox<String> dropdown;   // fx:id="dropdown" aus dem FXML
 
     private List<CountryExtension> allCountries;
+    Stream<CountryExtension> countrystream = allCountries.stream();
 
     @FXML
     public void initialize() {

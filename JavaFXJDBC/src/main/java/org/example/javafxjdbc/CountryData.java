@@ -6,12 +6,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class CountryData {
 
     public static List<CountryExtension> loadAllCountries() {
 
         List<CountryExtension> list = new ArrayList<>();
+
 
         String sql = "SELECT continent, indepyear FROM country";
 
