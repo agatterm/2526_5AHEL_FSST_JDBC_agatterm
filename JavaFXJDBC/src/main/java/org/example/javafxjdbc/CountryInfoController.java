@@ -3,41 +3,75 @@ package org.example.javafxjdbc;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.ComboBox;
 
+import java.util.HashMap;
 import java.util.List;
-
-// TODO: ListView, RadioButtons o.ä. zur Auswahl des Kontinents
-//   Anzeige nur für diesen Kontinent
-// -> nur 1x notwendige Daten aus der DB laden   in eine Collection
-// bei Änderung der Auswahl Filterung der Collection und Aktualisierung des Charts
+import java.util.Map;
 
 public class CountryInfoController {
 
     @FXML
     private BarChart<String, Number> barChart;
 
+    @FXML
+    private ComboBox<String> dropdown;   // fx:id="dropdown" aus dem FXML
 
-    private List<XYChart.Data<String, Number>> countryData;
-    //Collection
+    private List<CountryExtension> allCountries;
 
     @FXML
     public void initialize() {
 
-        //CountryData cd = new CountryData();
-        //countryData = cd.getCountriesPerDecade();
-        countryData = CountryData.getCountriesPerDecade();
+        allCountries = CountryData.loadAllCountries();
 
+        dropdown.getItems().addAll(
+                "All",
+                "Europe",
+                "North America",
+                "South America",
+                "Asia",
+                "Africa",
+                "Australia",
+                "ANtarktica"
+        );
+
+
+        dropdown.setValue("Europe");
+
+        dropdown.setOnAction(e -> {
+            String selected = dropdown.getValue();
+            updateChart(selected);
+        });
+
+        updateChart(null);
+    }
+
+
+
+    private void updateChart(String continentFilter) {
+
+        Map<Integer, Integer> decadeCount = new HashMap<>();
+
+        for (CountryExtension c : allCountries) {
+
+            Integer year = c.getIndepYear();
+            if (year == null || year <= 0) continue;
+
+            if (continentFilter != null && !continentFilter.equals(c.getContinent())) continue;
+
+            int decade = (year / 10) * 10;
+            decadeCount.put(decade, decadeCount.getOrDefault(decade, 0) + 1);
+        }
 
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("Countrydata");
-        //Serie erstellen
+        series.setName(continentFilter == null ? "Alle" : continentFilter);
 
-        barChart.lookup(".chart-plot-background").setStyle("-fx-background-color: lightskyblue");
+        decadeCount.keySet().stream().sorted().forEach(decade -> {
+            int count = decadeCount.get(decade);
+            series.getData().add(new XYChart.Data<>(decade + "s", count));
+        });
 
-
-        series.getData().addAll(countryData);
+        barChart.getData().clear();
         barChart.getData().add(series);
-        //Meine Aufgabenstellung 7 zu der Serie hinzufügen
-
     }
 }

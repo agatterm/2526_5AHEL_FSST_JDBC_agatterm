@@ -1,10 +1,10 @@
 package org.example.javafxjdbc;
 
-public class CountryRecord {
+public class CountryExtension {
     private final String continent;
     private final Integer indepYear;
 
-    public CountryRecord(String continent, Integer indepYear) {
+    public CountryExtension(String continent, Integer indepYear) {
         this.continent = continent;
         this.indepYear = indepYear;
     }
