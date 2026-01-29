@@ -51,7 +51,7 @@ public class CountryInfoController {
     }
 
 
-    private <CountryRecord> int calculateAverageIndepYear(String continentFilter) {
+    private int calculateAverageIndepYear(String continentFilter) {
 
         int sum = 0;
         int count = 0;
@@ -69,7 +69,7 @@ public class CountryInfoController {
         if (count == 0) return 0;
 
         double avg = (double) sum / count;
-        return (int) Math.round(avg);   // 🔹 RUNDEN auf ganze Zahl
+        return (int) Math.round(avg);   //
     }
 
 
@@ -109,6 +109,8 @@ public class CountryInfoController {
         barChart.getData().clear();
         barChart.getData().add(series);
         barChart.layout();
+        barChart.setAnimated(false);
+
 
     }
 }
