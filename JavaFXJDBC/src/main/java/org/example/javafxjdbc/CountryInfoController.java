@@ -21,7 +21,7 @@ public class CountryInfoController {
     private BarChart<String, Number> barChart;
 
     @FXML
-    private ComboBox<String> dropdown;   // fx:id="dropdown" aus dem FXML
+    private ComboBox<String> dropdown;
 
     private List<CountryExtension> allCountries;
     Stream<CountryExtension> countrystream = allCountries.stream();
@@ -71,7 +71,7 @@ public class CountryInfoController {
         if (count == 0) return 0;
 
         double avg = (double) sum / count;
-        return (int) Math.round(avg);   //
+        return (int) Math.round(avg);
     }
 
 
